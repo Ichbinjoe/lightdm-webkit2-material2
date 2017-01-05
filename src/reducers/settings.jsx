@@ -3,7 +3,7 @@ require('moment-timezone');
 
 let initialState = {
     'language': lightdm.languages[0].name,
-    'backgroundEngine': 'trianglify',
+    'backgroundEngine': 'image',
     'zodiacDensity': 50000,
     'backgroundColorScheme': 'random',
     'clockFormat': 24,

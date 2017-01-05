@@ -81,11 +81,6 @@ export default class Footer extends React.Component {
         return (
             <footer style={Style.footer} id="footer">
                 {this.buttons}
-                <FlatButton onTouchTap={this.goTo('/settings')} label={<FormattedMessage id="settings" defaultMessage="Settings" />} labelStyle={Style.label} icon={< i style = {
-                    Style.label
-                }
-                className = "fa fa-gears" > </i>}/>
-            <IconButton className="icon" onTouchTap={this.goTo('/about')} style={{float: 'right', height: '100%'}} iconStyle={Style.label} iconClassName="fa fa-question-circle"/>
             </footer>
         );
     }

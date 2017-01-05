@@ -130,27 +130,17 @@ class Login extends React.Component {
         }
         return (
             <Card className="card animated">
-                <form onSubmit={this.login.bind(this)} id="login-form">
-                    <div className="header"><FormattedMessage id="welcomeBack" defaultMessage="Weclome Back" />!</div>
-                    <div id="avatarContainer">
-                        <img className="avatar" src={this.state.avatarSrc} onError={this.defaultAvatar.bind(this)}/>
-                    </div>
-                    <div className="form-container">
-                        <SelectField fullWidth={true} floatingLabelText={<FormattedMessage id="user" defaultMessage="User" />} value={this.props.settings.userName} onChange={this.changeUserName}>
-                            {users}
-                        </SelectField>
-                        <TextField id="password-input" fullWidth={true} floatingLabelText={<FormattedMessage id="password" defaultMessage="Password" />} type="password" value={this.state.password || ''} onChange={this.updatePassword} autoFocus errorText={this.state.passwordError} hintText={this.state.passwordHint}/>
-                        <SelectField fullWidth={true} floatingLabelText={<FormattedMessage id="session" defaultMessage="Session" />} value={this.props.settings.sessionKey} onChange={this.changesessionKey}>
-                            {sessions}
-                        </SelectField>
-                    </div>
-                    <CardActions>
-                        <FlatButton icon={< i className = {
-                            'fa ' + loginBtnStatus.iconClass
-                        } > </i>} style={{
-                            width: 100 + '%'
-                        }} label={loginBtnStatus.label} disabled={this.state.authenticating} onTouchTap={this.login.bind(this)}/>
-                    </CardActions>
+                <form className="form-container" onSubmit={this.login.bind(this)} id="login-form">
+                    <TextField fullWidth={true} floatingLabelText={<FormattedMessage id="user" defaultMessage="User" />} value={this.props.settings.userName} onChange={this.changeUserName}/>
+                    <TextField id="password-input" type={"submit"} fullWidth={true} floatingLabelText={<FormattedMessage id="password" defaultMessage="Password" />} type="password" value={this.state.password || ''} onChange={this.updatePassword} autoFocus errorText={this.state.passwordError} hintText={this.state.passwordHint}/>
+                    <SelectField fullWidth={true} floatingLabelText={<FormattedMessage id="session" defaultMessage="Session" />} value={this.props.settings.sessionKey} onChange={this.changesessionKey}>
+                        {sessions}
+                    </SelectField>
+                    <FlatButton type="submit" icon={< i className = {
+                        'fa ' + loginBtnStatus.iconClass
+                    } > </i>} style={{
+                        width: 100 + '%'
+                    }} label={loginBtnStatus.label} disabled={this.state.authenticating} onTouchTap={this.login.bind(this)}/>
                 </form>
             </Card>
         );
